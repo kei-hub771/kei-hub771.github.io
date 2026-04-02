@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,31 +6,42 @@
     body {
         margin: 0;
         background: black;
+        width: 100vw;
         height: 100vh;
+        overflow: hidden;
         display: flex;
-        justify-content: center;   
-        align-items: center;       
-    }
-    img {
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
+        justify-content: center;
+        align-items: center;
     }
 
+    #viewer {
+        width: 100%;
+        height: 100%;
+        background-size: cover;      /* ← 画面いっぱいにフィット */
+        background-position: center; /* ← 中央に配置 */
+        background-repeat: no-repeat;
+    }
 </style>
 </head>
 
 <body>
 
-<img id="viewer" src="image_folder//page_1.jpg">
+<div id="viewer"></div>
 
 <script>
-    const pages = ['image_folder//page_1.jpg', 'image_folder//page_2.jpg', 'image_folder//page_3.jpg'];
+    const pages = [
+        'image_folder/page_1.jpg',
+        'image_folder/page_2.jpg',
+        'image_folder/page_3.jpg'
+    ];
     let index = 0;
+
+    const viewer = document.getElementById("viewer");
+    viewer.style.backgroundImage = `url(${pages[0]})`;
 
     document.body.addEventListener("click", () => {
         index = (index + 1) % pages.length;
-        document.getElementById("viewer").src = pages[index];
+        viewer.style.backgroundImage = `url(${pages[index]})`;
     });
 </script>
 
