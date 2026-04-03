@@ -8,39 +8,47 @@
         margin: 0;
         background: black;
         color: white;
-        height: 100vh;
+        font-family: sans-serif;
         display: flex;
         justify-content: center;
-        align-items: center;
-        font-family: sans-serif;
+        align-items: flex-start;    /*全体を上寄せ*/
+        min-height: 100vh;
+        padding: 20px;
     }
 
     .menu {
-        text-align: center;
-        width: 90%;
-        max-width: 400px;
-    }
-
-    h1 {
-        margin-bottom: 30px;
-        font-size: 28px;
-    }
-
-    .btn {
-        display: block;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));    /*複数列にするのに必要*/
+        gap: 20px;    /*サムネイル同士の間隔*/
         width: 100%;
-        padding: 15px;
-        margin: 10px 0;
-        background: #222;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        font-size: 20px;
-        transition: 0.2s;
+        max-width: 900px;
     }
 
-    .btn:hover {
-        background: #444;
+    .item {
+        background: #111;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.2s;
+        text-decoration: none;
+        color: white;
+    }
+
+    .item:hover {
+        background: #222;
+    }
+
+    .thumb {
+        width: 100%;
+        height: 500px;      /*サムネイルの高さ*/
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .title {
+        margin-top: 8px;
+        font-size: 18px;
+        display: block;
     }
 </style>
 </head>
@@ -48,12 +56,31 @@
 <body>
 
 <div class="menu">
-    <h1>Menu</h1>
 
-    <a class="btn" href="viewer_program.html">Viewer</a>
-    <a class="btn" href="蛍ちゃん_viewer.html">蛍ちゃん</a>
-    <a class="btn" href="悪の教団に捕らわれて_びんかんargento_viewer.html">悪の教団に捕らわれて_びんかんargento</a>
-    <a class="btn" href="真姫ちゃん_Miel_viewer.html">真姫ちゃん_Miel</a>
+    <!-- 家入硝子_ハリスヒロ -->
+    <a class="item" href="家入硝子_ハリスヒロ_viewer.html">
+        <img class="thumb" src="家入硝子_ハリスヒロ/page_1.jpg">
+        <span class="title">家入硝子_ハリスヒロ</span>
+    </a>
+
+    <!-- 蛍ちゃん -->
+    <a class="item" href="蛍ちゃん_viewer.html">
+        <img class="thumb" src="蛍ちゃん/page_1.jpg">
+        <span class="title">蛍ちゃん</span>
+    </a>
+
+    <!-- 悪の教団に捕らわれて_びんかんargento -->
+    <a class="item" href="悪の教団に捕らわれて_びんかんargento_viewer.html">
+        <img class="thumb" src="悪の教団に捕らわれて_びんかんargento/page_1.jpg">
+        <span class="title">page2</span>
+    </a>
+
+    <!-- 真姫ちゃん -->
+    <a class="item" href="真姫ちゃん_Miel_viewer.html">
+        <img class="thumb" src="真姫ちゃん_Miel/page_1.jpg">
+        <span class="title">真姫ちゃん Miel</span>
+    </a>
+
 </div>
 
 </body>
