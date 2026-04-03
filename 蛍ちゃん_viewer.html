@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,15 +24,18 @@
 
 <body>
 
-<img id="viewer" src="image_folder//page_1.jpg">
+<div id="viewer"></div>
 
 <script>
-    const pages = ['蛍ちゃん//page_1.jpg', '蛍ちゃん//page_2.jpg', '蛍ちゃん//page_3.jpg'];
+    const pages = ['蛍ちゃん/page_1.jpg', '蛍ちゃん/page_2.jpg', '蛍ちゃん/page_3.jpg'];
     let index = 0;
+
+    const viewer = document.getElementById("viewer");
+    viewer.style.backgroundImage = `url(${pages[0]})`;
 
     document.body.addEventListener("click", () => {
         index = (index + 1) % pages.length;
-        document.getElementById("viewer").src = pages[index];
+        viewer.style.backgroundImage = `url(${pages[index]})`; 
     });
 </script>
 

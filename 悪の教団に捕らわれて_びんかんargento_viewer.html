@@ -25,15 +25,18 @@
 
 <body>
 
-<img id="viewer" src="悪の教団に捕らわれて_びんかんargento//page_1.jpg">
+<div id="viewer"></div>
 
 <script>
     const pages = ['悪の教団に捕らわれて_びんかんargento//page_1.jpg', '悪の教団に捕らわれて_びんかんargento//page_2.jpg', '悪の教団に捕らわれて_びんかんargento//page_3.jpg', '悪の教団に捕らわれて_びんかんargento//page_4.jpg'];
     let index = 0;
 
+    const viewer = document.getElementById("viewer");
+    viewer.style.backgroundImage = `url(${pages[0]})`;
+
     document.body.addEventListener("click", () => {
         index = (index + 1) % pages.length;
-        document.getElementById("viewer").src = pages[index];
+        viewer.style.backgroundImage = `url(${pages[index]})`; 
     });
 </script>
 
