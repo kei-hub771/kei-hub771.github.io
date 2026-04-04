@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        overflow: hidden;
+    }
+
+    #viewer {
+        width: 100%;
+        height: 100%;
+        background-size: contain;     /* ← 見切れない最大サイズ */
+        background-position: center;  /* ← 常に中央 */
+        background-repeat: no-repeat; /* ← 繰り返しなし */
+    }
+</style>
+</head>
+
+<body>
+
+<div id="viewer"></div>
+
+<script>
+    const pages = ['朝霧スオウを尋問する_吉本//page_1.jpg', '朝霧スオウを尋問する_吉本//page_2.jpg'];
+    let index = 0;
+
+    const viewer = document.getElementById("viewer");
+    viewer.style.backgroundImage = `url(${pages[0]})`;
+
+    document.body.addEventListener("click", () => {
+        index = (index + 1) % pages.length;
+        viewer.style.backgroundImage = `url(${pages[index]})`; 
+    });
+</script>
+
+</body>
+</html>
