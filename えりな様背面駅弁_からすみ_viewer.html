@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        overflow: hidden;
+    }
+
+    #viewer {
+        width: 100%;
+        height: 100%;
+        background-size: contain;     /* ← 見切れない最大サイズ */
+        background-position: center;  /* ← 常に中央 */
+        background-repeat: no-repeat; /* ← 繰り返しなし */
+    }
+</style>
+</head>
+
+<body>
+
+<div id="viewer"></div>
+
+<script>
+    const pages = ['えりな様背面駅弁_からすみ//page_1.jpg', 'えりな様背面駅弁_からすみ//page_10.jpg', 'えりな様背面駅弁_からすみ//page_11.jpg', 'えりな様背面駅弁_からすみ//page_12.jpg', 'えりな様背面駅弁_からすみ//page_13.jpg', 'えりな様背面駅弁_からすみ//page_2.jpg', 'えりな様背面駅弁_からすみ//page_3.jpg', 'えりな様背面駅弁_からすみ//page_4.jpg', 'えりな様背面駅弁_からすみ//page_5.jpg', 'えりな様背面駅弁_からすみ//page_6.jpg', 'えりな様背面駅弁_からすみ//page_7.jpg', 'えりな様背面駅弁_からすみ//page_8.jpg', 'えりな様背面駅弁_からすみ//page_9.jpg'];
+    let index = 0;
+
+    const viewer = document.getElementById("viewer");
+    viewer.style.backgroundImage = `url(${pages[0]})`;
+
+    document.body.addEventListener("click", () => {
+        index = (index + 1) % pages.length;
+        viewer.style.backgroundImage = `url(${pages[index]})`; 
+    });
+</script>
+
+</body>
+</html>
